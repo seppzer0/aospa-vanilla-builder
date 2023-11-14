@@ -1,4 +1,4 @@
-# aospa-vanilla-builder — an easy wrapper for GMS-less AOSPA builds
+# aospa-vanilla-builder — an easy wrapper for Dockerized GMS-less AOSPA builds
 
 aospa-vanilla-builder is a simple Dockerized wrapper for building "vanilla" AOSPA (aka without Google Mobile Services).
 
@@ -8,20 +8,26 @@ All of the steps are done according to official AOSPA instruction manual with a 
 
 The usage of this wrapper consists of two parts:
 
-### 1. Preparing the environment
+- preparing the environment (aka building the Docker image);
+- launching the ROM build.
 
-To prepare the containerized build environment, use:
+Both steps are handled automatically within the wrapper.
 
-```sh
-docker build . -t aospa-vanilla-builder
+```help
+$ python3 wrapper --help
+usage: wrapper [-h] [--clean CLEAN] device branch
+
+positional arguments:
+  device         select a device codename
+  branch         select AOSPA branch
+
+options:
+  -h, --help     show this help message and exit
+  --clean CLEAN  select to clean up Docker cache before the build
 ```
 
-This action will prepare a Docker image that has all the settings, tools and sources required for the AOSPA build.
-
-### 2. Launching the ROM build
-
-To launch the ROM build using the prepared Docker image, use:
+As an example, to launch a build for OnePlus 5T device with Topaz branch, use:
 
 ```sh
-docker run --rm -it aospa-vanilla-builder
+python3 wrapper oneplus5t topaz
 ```

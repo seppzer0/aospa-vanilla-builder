@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "aospa-vanilla-builder"
+version = "0.1.0"
+description = "An easy wrapper for Dockerized GMS-less AOSPA builds."
+authors = ["seppzer0"]
+packages = [{include = "wrapper"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+argparse = "*"
+requests = "*"
+dataclasses = "*"
+pathlib = "*"
+typing = "*"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

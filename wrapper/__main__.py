@@ -1,6 +1,7 @@
 import sys
 import argparse
 
+from models.rom_builder import RomBuilder
 from models.image_builder import ImageBuilder
 
 
@@ -25,13 +26,16 @@ def parse_args() -> argparse.Namespace:
 
 def main(args: argparse.Namespace) -> None:
     # build the Docker image
-    image_builder = ImageBuilder(
+    ImageBuilder(
         device=args.device,
         branch=args.branch,
         clean=args.clean
-    )
-    image_builder.build()
-    # build the ROM image
+    ).build()
+    # build the ROM
+    RomBuilder(
+        device=args.device,
+        branch=args.branch
+    ).build()
 
 
 if __name__ == "__main__":
