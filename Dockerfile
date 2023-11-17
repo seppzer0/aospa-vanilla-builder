@@ -51,4 +51,4 @@ RUN repo init -u https://github.com/AOSPA/manifest -b ${BRANCH} && \
     repopick -t ${BRANCH}-vanilla
 
 # build
-CMD [ "./rom-build.sh ${DEVICE}" ]
+CMD [ "./rom-build.sh",  "${DEVICE}" ]
