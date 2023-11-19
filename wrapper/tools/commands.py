@@ -9,7 +9,6 @@ def launch(cmd: str, get_output: bool = False) -> Union[str, None]:
     A custom subprocess wrapper to launch commands.
 
     :param cmd: A command to launch.
-    :param loglvl: Log level.
     :param get_output: A switch to get the piped output of the command.
     """
     # determine stdout and check some of the cases
